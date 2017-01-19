@@ -1,10 +1,10 @@
-FROM <the owner of the base image>/<the name of the base image>
-MAINTAINER <your name and username>
+FROM nuagebec/ubuntu
+MAINTAINER chrisui
 
-RUN <install nginx>
-...
+RUN apt-get update
+RUN apt-get install -y Nginx
 
 COPY index.html /usr/share/nginx/html/index.html
-COPY nginx.conf /etc/nginx/conf.d/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
 
-CMD <start Nginx>
+CMD /etc/init.d/nginx start
